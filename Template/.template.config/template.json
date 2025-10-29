@@ -1,0 +1,25 @@
+{
+    "author": "GTLabs",
+    "name": ".NET Template",
+    "description": "",
+    "identity": "GTLabs.Template",
+    "shortName": "GTLabs.Template",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "GTLabs.NET.Template",
+    "symbols": {
+        "Framework": {
+            "type": "parameter",
+            "description": "The target framework for the project.",
+            "datatype": "choice",
+            "choices": [
+                {
+                    "choice": "9.0"
+                }
+            ],
+            "defaultValue": "9.0"
+        }
+    }
+}
