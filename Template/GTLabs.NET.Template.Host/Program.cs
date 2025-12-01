@@ -1,19 +1,27 @@
+using Gtlabs.Api.AmbientData;
 using Gtlabs.Api.Extensions;
 using Gtlabs.AppRegistration.Extensions;
 using Gtlabs.Consul.Extensions;
 using Gtlabs.DependencyInjections.DependencyInjectons.Extensions;
+using GTLabs.NET.Template.Infrastructure.Contexts;
+using Gtlabs.Persistence.Extensions;
 using Gtlabs.Redis.Extensions;
 using Gtlabs.ServiceBus.ServiceBus.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.RegisterApp("GTLabs.NET.Template");
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAmbientData();
 builder.Services.RegisterAllDependencies();
 await builder.Configuration.AddConsulConfigurationAsync();
 builder.Services.AddConsulRegistration(builder.Configuration);
 builder.ConfigureKestrelWithNetworkHelper();
 builder.Services.RegisterServiceBus(builder.Configuration);
-builder.Services.AddRedisCache();
+builder.Services.AddRedisCache(builder.Configuration);
+
+builder.Services.AddPersistence<TemplateDbcontext>(builder.Configuration);
+
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
