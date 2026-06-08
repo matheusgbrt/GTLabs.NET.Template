@@ -7,9 +7,8 @@
       "launchBrowser": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "URL-CONSUL": "http://consul.gtlabs.com.br:8500",
-        "URL-GATEWAY": "http://gateway.gtlabs.com.br:9999",
-        "SERVICE_ADVERTISE_HOST": "10.8.0.2",
+        "URL-CONSUL": "http://localhost:8500",
+        "SERVICE_ADVERTISE_HOST": "127.0.0.1",
         "SERVICE_ADVERTISE_PORT": "5224"
       }
     },
@@ -18,7 +17,10 @@
       "dotnetRunMessages": true,
       "launchBrowser": false,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "URL-CONSUL": "http://localhost:8500",
+        "SERVICE_ADVERTISE_HOST": "127.0.0.1",
+        "SERVICE_ADVERTISE_PORT": "5224"
       }
     }
   }
