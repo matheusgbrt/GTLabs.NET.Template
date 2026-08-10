@@ -31,15 +31,13 @@ builder.Services.AddPersistence<TemplateDbcontext>(builder.Configuration);
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
-
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
-
+app.AddConsulHealthCheck();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
